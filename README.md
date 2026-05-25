@@ -10,6 +10,21 @@ GraphWalker supports guards (boolean conditions on edges), actions (scripts that
 - **Git**
 - **Node.js and npm** (only needed if building the Studio frontend from source)
 
+### Nix / NixOS Developer Environment
+
+If you have the [Nix package manager](https://nixos.org/) installed, you don't need to manually install Rust or Node.js. A fully configured developer environment is provided via flakes.
+
+Simply run:
+```bash
+nix develop
+```
+This automatically boots a shell with `rustc`, `cargo`, `rustfmt`, `clippy`, `rust-analyzer`, `nodejs`, and all required libraries configured.
+
+If you use [direnv](https://direnv.net/), you can automate this by running:
+```bash
+echo "use flake" > .envrc && direnv allow
+```
+
 ## Building
 
 ```bash
