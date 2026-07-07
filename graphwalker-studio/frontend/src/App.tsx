@@ -428,7 +428,11 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'test.json';
+
+    const rawName = models[0]?.name?.trim() || 'test';
+    const safeName = rawName.replace(/[^a-z0-9_-]+/gi, '_');
+    a.download = `${safeName}.json`;    
+    
     a.click();
     URL.revokeObjectURL(url);
   }, [models]);
